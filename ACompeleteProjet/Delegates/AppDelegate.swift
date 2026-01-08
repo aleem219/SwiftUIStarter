@@ -4,7 +4,8 @@
 //
 //  Created by Abdul Aleem on 08/01/26.
 //
-
+// user name : emilys
+// password  : emilyspass
 import UIKit
 
 @main
@@ -32,5 +33,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+
+    
+    func moveToHome(completion: (() -> Void)? = nil) {
+//        if let vc = StoryboardManager.instantiateTabbar() {
+//            let navC = UINavigationController(rootViewController: vc)
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//                if let window = windowScene.windows.first {
+//                    window.rootViewController = navC
+//                    window.makeKeyAndVisible()
+//                }
+//            }
+//        }
+    }
+    
+    func moveToLogin() {
+//        if let vc = StoryboardManager.instantiateLoginVC() {
+//            let navC = UINavigationController(rootViewController: vc)
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//                if let window = windowScene.windows.first {
+//                    window.rootViewController = navC
+//                    window.makeKeyAndVisible()
+//                }
+//            }
+//        }
+    }
 }
 
