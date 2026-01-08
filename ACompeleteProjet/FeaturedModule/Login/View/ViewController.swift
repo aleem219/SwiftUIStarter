@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
@@ -33,6 +34,13 @@ extension ViewController {
         emailTF.tag = 1 // Email
         passowordTF.tag = 2 // Username
         viewModel.delegate = self
+    }
+    
+    func openTabbar() {
+        let tabbarView = TabbarView()
+        let hostingVC = UIHostingController(rootView: tabbarView)
+
+        self.navigationController?.pushViewController(hostingVC, animated: true)
     }
 }
 
@@ -63,7 +71,8 @@ extension ViewController: LoginViewModelProtocol {
     func loginSuccessful(message: String) {
         showAlert(message: message) {
 //            appDelegate.moveToHome()
-            appDelegate.moveToTabbar()
+//            appDelegate.moveToTabbar()
+            self.openTabbar()
         }
     }
     
