@@ -57,6 +57,17 @@ extension ViewController: LoginViewModelProtocol {
             showAlert(message: StringConstants.Login.email)
             return false
         }
+        
+           let emailPredicate = NSPredicate(
+               format: StringConstants.Common.format,
+               StringConstants.Regex.emailRegEx
+           )
+           
+           if !emailPredicate.evaluate(with: username) {
+               showAlert(message: StringConstants.SignUp.validEmail)
+               return false
+           }
+        
         if password.isEmpty {
             showAlert(message: StringConstants.Login.password)
             return false
