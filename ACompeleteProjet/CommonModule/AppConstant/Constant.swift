@@ -38,8 +38,6 @@ public enum StringConstants {
     }
     
     public enum Common {
-        static let postPlaceHolder = "Share your Fun Plans Here!"
-        static let appName = "ParkProtect"
         static let okay = "Okay"
         static let cancel = "Cancel"
         static let confirm = "Confirm"
