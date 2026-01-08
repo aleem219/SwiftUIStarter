@@ -38,16 +38,14 @@ public enum StringConstants {
     }
     
     public enum Common {
+        static let no = "No"
+        static let yes = "Yes"
+        static let done = "Done"
         static let okay = "Okay"
         static let cancel = "Cancel"
         static let confirm = "Confirm"
-        static let yes = "Yes"
-        static let no = "No"
-        static let done = "Done"
         static let format = "SELF MATCHES %@"
     }
-    
-  
     
     public enum Message {
         static let commonError = "App is currently processing your previous request, please wait for some time."
@@ -102,8 +100,8 @@ enum OtpHasCameFrom {
     case signup
     case forgotPassword
 }
+
 enum carDetailsHasCameFrom {
     case Main
     case Home
-    
 }
