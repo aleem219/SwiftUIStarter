@@ -1,3 +1,9 @@
+//
+//  ErrorResponseModel.swift
+//  ACompeleteProjet
+//
+//  Created by Abdul Aleem on 08/01/26.
+//
 
 import Foundation
 
