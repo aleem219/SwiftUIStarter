@@ -62,10 +62,8 @@ extension ViewController: LoginViewModelProtocol {
     
     func loginSuccessful(message: String) {
         showAlert(message: message) {
-//            if let vc = StoryboardManager.instantiateTabbar() {
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-            appDelegate.moveToHome()
+//            appDelegate.moveToHome()
+            appDelegate.moveToTabbar()
         }
     }
     

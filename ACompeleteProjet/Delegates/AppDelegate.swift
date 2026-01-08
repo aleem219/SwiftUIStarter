@@ -7,6 +7,7 @@
 // user name : emilys
 // password  : emilyspass
 import UIKit
+import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -60,6 +61,17 @@ extension AppDelegate {
 //                }
 //            }
 //        }
+    }
+    
+    func moveToTabbar() {
+        let tabbarView = TabbarView()
+          let hostingController = UIHostingController(rootView: tabbarView)
+
+          if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+             let window = windowScene.windows.first {
+              window.rootViewController = hostingController
+              window.makeKeyAndVisible()
+          }
     }
 }
 
