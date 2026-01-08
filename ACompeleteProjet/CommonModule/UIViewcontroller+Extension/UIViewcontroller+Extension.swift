@@ -83,6 +83,16 @@ extension UIViewController {
         }
     }
     
+    func showNoInternetAlert() {
+          let alert = UIAlertController(
+            title: StringConstants.AlertMessage.knoNetwork,
+              message: StringConstants.AlertMessage.networkAvailablity,
+              preferredStyle: .alert
+          )
+          alert.addAction(UIAlertAction(title: "OK", style: .default))
+          present(alert, animated: true)
+      }
+
     func LoadingStart(msg : String) {
         ProgressDialog.alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
         

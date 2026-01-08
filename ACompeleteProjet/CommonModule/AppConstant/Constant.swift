@@ -88,6 +88,7 @@ public enum StringConstants {
     
     public enum AlertMessage {
         static let knoNetwork = "No Internet Available"
+        static let networkAvailablity = "Please check your internet connection and try again."
     }
 }
 

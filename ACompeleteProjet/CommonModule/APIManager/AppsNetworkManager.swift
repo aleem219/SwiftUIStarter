@@ -31,16 +31,16 @@ public class AppsNetworkManager: NSObject, MFMailComposeViewControllerDelegate {
                     completionClosure: @escaping (_ result: Data) -> ()) -> Void {
 
         // MARK: - Check the network availability
-        if InternetConnectionManager.isConnectedToNetwork() != true {
-            DispatchQueue.main.async {
-                UIViewController.getTopViewController()?.showAlert(
-                    message: StringConstants.Login.email
-                )
-            }
-            return
+//        if InternetConnectionManager.isConnectedToNetwork() == false {
+//            DispatchQueue.main.async {
+//                UIViewController.getTopViewController()?.showNoInternetAlert()
+//            }
+//            return
+//        }
+
+        DispatchQueue.main.async {
+            UIViewController.getTopViewController()?.LoadingStart(msg: "Loading")
         }
-
-
         // MARK: - Fetch URL From Strings
         guard let url = URL(string: serviceurl.replacingOccurrences(of: " ", with: "%20")) else { return }
 
@@ -74,22 +74,29 @@ public class AppsNetworkManager: NSObject, MFMailComposeViewControllerDelegate {
             let statusCode = httpsResponse.statusCode
             let json = self.nsdataToJSON(data: data ?? Data())
 //            print("Response: \(json)")
-
             switch statusCode {
             case 200, 201:
                 DispatchQueue.main.async {
                     print("Response: \(String(describing: json))")
+                    UIViewController.getTopViewController()?.LoadingStop()
                     completionClosure(data ?? Data())
                 }
-
             case 401:
                 DispatchQueue.main.async {
+                    let errorMessage = self.decodeErrorMessage(from: data)
                     print("Response: \(String(describing: json))")
+                    UIViewController
+                        .getTopViewController()?
+                        .showAlert(message: errorMessage)
                     completionClosure(data ?? Data())
                 }
             case 402:
+                let errorMessage = self.decodeErrorMessage(from: data)
                 DispatchQueue.main.async {
-                print("unauthorized")
+                    print("unauthorized")
+                    UIViewController
+                        .getTopViewController()?
+                        .showAlert(message: errorMessage)
                 }
                 
             default:
@@ -746,5 +753,23 @@ struct Media {
         
         guard let data = image.jpegData(compressionQuality: 0.7) else { return nil }
         self.data = data
+    }
+}
+
+
+extension AppsNetworkManager {
+
+    func decodeErrorMessage(from data: Data?) -> String {
+        guard let data = data else {
+            return "Something went wrong"
+        }
+
+        do {
+            let errorResponse = try JSONDecoder().decode(ErrorResponseModel.self, from: data)
+            return errorResponse.message ?? "Something went wrong"
+        } catch {
+            print("❌ Error decoding ErrorResponseModel:", error)
+            return "Something went wrong"
+        }
     }
 }
