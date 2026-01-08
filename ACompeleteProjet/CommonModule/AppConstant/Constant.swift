@@ -1,5 +1,5 @@
 //
-//  ConsTant.swift
+//  ViewController.swift
 //  ACompeleteProjet
 //
 //  Created by Abdul Aleem on 08/01/26.
@@ -26,17 +26,6 @@ public enum StringConstants {
         static let kUserPassword               = "UserPassword"
         static let kCheckStatus                = "checkStauts"
         static let kHasShownPopup              = "hasShownPopup"
-    }
-    public enum AlertMessage {
-        static let deletePost = "Do you want to Delete this Post?"
-        static let acceptDate = "Do you want to Accept the Invitation?"
-        static let rejectDate = "Do you want to Decline the Invitation?"
-        static let cancelDate = "Do you want to Cancel the Invitation?"
-        static let logout = "Are you sure you want to Logout?"
-        static let deleteAdminAccount = "If you choose to delete your account all profiles associated with this account will be deleted including all Play Dates, Posts and Friends.\n Are you sure you want to Delete this Account?"
-        
-        static let deleteMemberAccount = "If you choose to delete your account all Play Dates, Posts and Friends associated with this account will be deleted.\n Are you sure you want to Delete this Account?"
-        
     }
     
     public enum ImageName {
@@ -84,6 +73,9 @@ public enum StringConstants {
     }
     
     public enum Login {
+        static let strongPassword = "Password must be atleast 6 characters!"
+        static let email = "Please enter email"
+        static let password = "Please enter password"
         static let validCredential = "Please enter valid email or mobile number"
     }
     
@@ -96,6 +88,10 @@ public enum StringConstants {
     
     public enum EditProfile {
         static let savedImage = "savedImageUrl"
+    }
+    
+    public enum AlertMessage {
+        static let knoNetwork = "No Internet Available"
     }
 }
 
@@ -113,10 +109,3 @@ enum carDetailsHasCameFrom {
     case Home
     
 }
-
-
-public enum AWSBUCKETCONST {
-    static let AWSBUCKETNAME = "park-protect-dev"
-    
-}
-

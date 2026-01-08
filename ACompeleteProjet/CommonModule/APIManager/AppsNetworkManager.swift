@@ -31,9 +31,15 @@ public class AppsNetworkManager: NSObject, MFMailComposeViewControllerDelegate {
                     completionClosure: @escaping (_ result: Data) -> ()) -> Void {
 
         // MARK: - Check the network availability
-        // if  NetworkReachabilityManager()?.isReachable != true {
-        //     showAlertMessage.alert(message: AlertMessage.knoNetwork)
-        // }
+        if InternetConnectionManager.isConnectedToNetwork() != true {
+            DispatchQueue.main.async {
+                UIViewController.getTopViewController()?.showAlert(
+                    message: StringConstants.Login.email
+                )
+            }
+            return
+        }
+
 
         // MARK: - Fetch URL From Strings
         guard let url = URL(string: serviceurl.replacingOccurrences(of: " ", with: "%20")) else { return }

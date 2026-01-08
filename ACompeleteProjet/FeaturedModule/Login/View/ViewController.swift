@@ -46,15 +46,15 @@ extension ViewController : UITextFieldDelegate {
 extension ViewController: LoginViewModelProtocol {
     func validateInputs(username: String, password: String) -> Bool {
         if username.isEmpty {
-            showAlert(message: StringConstants.SignUp.email)
+            showAlert(message: StringConstants.Login.email)
             return false
         }
         if password.isEmpty {
-            showAlert(message: StringConstants.SignUp.password)
+            showAlert(message: StringConstants.Login.password)
             return false
         }
         if password.count < 6 {
-            showAlert(message: StringConstants.SignUp.strongPassword)
+            showAlert(message: StringConstants.Login.strongPassword)
             return false
         }
         return true
