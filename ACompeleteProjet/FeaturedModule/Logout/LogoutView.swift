@@ -18,7 +18,7 @@ struct LogoutView: View {
                 .ignoresSafeArea()
 
             // Dialog card
-            VStack(spacing: 16) {
+            VStack(spacing: 15) {
 
                 // Icon
                 ZStack {
@@ -28,7 +28,7 @@ struct LogoutView: View {
 
                     Image(systemName: "person.fill.xmark")
                         .foregroundColor(.white)
-                        .font(.system(size: 28, weight: .bold))
+                        .font(.system(size: 28, weight: .medium))
                 }
                 .padding()
 
