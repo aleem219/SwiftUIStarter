@@ -37,6 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
+    
+    func keyChainLoad() {
+        let (username, password) = KeychainService.load()
+        if let username = username, let password = password {
+            print("Loaded username: \(username)")
+            print("Loaded password: \(password)")
+            moveToTabbar()
+        } else {
+            moveToLogin()
+        }
+    }
 
     
     func moveToHome(completion: (() -> Void)? = nil) {
@@ -51,16 +62,28 @@ extension AppDelegate {
 //        }
     }
     
+//    func moveToLogin() {
+////        if let vc = StoryboardManager.instantiateLoginVC() {
+////            let navC = UINavigationController(rootViewController: vc)
+////            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+////                if let window = windowScene.windows.first {
+////                    window.rootViewController = navC
+////                    window.makeKeyAndVisible()
+////                }
+////            }
+////        }
+//    }
+    
     func moveToLogin() {
-//        if let vc = StoryboardManager.instantiateLoginVC() {
-//            let navC = UINavigationController(rootViewController: vc)
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//                if let window = windowScene.windows.first {
-//                    window.rootViewController = navC
-//                    window.makeKeyAndVisible()
-//                }
-//            }
-//        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = scene.windows.first {
+            window.rootViewController = nav
+            window.makeKeyAndVisible()
+        }
     }
     
     func moveToTabbar() {

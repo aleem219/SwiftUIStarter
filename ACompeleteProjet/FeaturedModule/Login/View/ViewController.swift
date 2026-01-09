@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             return
         }
         viewModel.loginRequest(username: username, password: password)
+        KeychainService.save(username: username, password: password)
     }
     
 }
@@ -58,15 +59,15 @@ extension ViewController: LoginViewModelProtocol {
             return false
         }
         
-           let emailPredicate = NSPredicate(
-               format: StringConstants.Common.format,
-               StringConstants.Regex.emailRegEx
-           )
-           
-           if !emailPredicate.evaluate(with: username) {
-               showAlert(message: StringConstants.SignUp.validEmail)
-               return false
-           }
+//           let emailPredicate = NSPredicate(
+//               format: StringConstants.Common.format,
+//               StringConstants.Regex.emailRegEx
+//           )
+//           
+//           if !emailPredicate.evaluate(with: username) {
+//               showAlert(message: StringConstants.SignUp.validEmail)
+//               return false
+//           }
         
         if password.isEmpty {
             showAlert(message: StringConstants.Login.password)

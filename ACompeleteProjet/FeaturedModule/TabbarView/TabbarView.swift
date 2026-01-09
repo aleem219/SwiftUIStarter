@@ -22,7 +22,7 @@ struct TabbarView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }
-            Text("Profile View")
+            LogoutView()
                 .tabItem {
                     Label("Profile", systemImage: "house.fill")
                 }
