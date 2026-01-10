@@ -13,35 +13,30 @@ struct HomeView: View {
         HomeItem(
             title: "Tester Tester Tester Tester Tester Tester Tester Tester ",
             privacy: "Private",
-            label: "Label",
             sector: "Sector 18",
             imageName: "User"
         ),
         HomeItem(
             title: "Tester",
             privacy: "Private",
-            label: "Label",
             sector: "Sector 18",
             imageName: "User"
         ),
         HomeItem(
             title: "Tester",
             privacy: "Private",
-            label: "Label",
             sector: "Sector 18",
             imageName: "User"
         ),
         HomeItem(
             title: "Tester",
             privacy: "Private",
-            label: "Label",
             sector: "Sector 18",
             imageName: "User"
         ),
         HomeItem(
             title: "Tester",
             privacy: "Private",
-            label: "Label",
             sector: "Sector 18",
             imageName: "User"
         ),
@@ -60,6 +55,7 @@ struct HomeView: View {
             }
         }
         .listStyle(.plain)
+        .padding(.vertical, 10)
         
     }
 }

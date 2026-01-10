@@ -83,13 +83,14 @@ extension ViewController: LoginViewModelProtocol {
     func loginSuccessful(message: String) {
         showAlert(message: message) {
 //            appDelegate.moveToHome()
-//            appDelegate.moveToTabbar()
-            self.openTabbar()
+            appDelegate.moveToTabbar()
+//            self.openTabbar()
         }
     }
     
     func loginFailure(message: String) {
         showAlert(message: message) {}
+        UIViewController.getTopViewController()?.LoadingStop()
     }
     
     private func isValidEmail(_ email: String) -> Bool {

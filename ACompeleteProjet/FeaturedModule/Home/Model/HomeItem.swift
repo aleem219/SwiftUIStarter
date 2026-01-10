@@ -11,7 +11,6 @@ struct HomeItem: Identifiable {
     let id = UUID()
     let title: String
     let privacy: String
-    let label: String
     let sector: String
     let imageName: String
 }
@@ -39,9 +38,7 @@ struct HomeRowView: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 
-                Text(item.label)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+               
                 
                 Text(item.sector)
                     .font(.subheadline)
