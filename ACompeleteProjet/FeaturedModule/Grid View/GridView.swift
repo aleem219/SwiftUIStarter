@@ -9,14 +9,24 @@ import SwiftUI
 
 struct GridView: View {
     var body: some View {
-        Grid {
-            GridRow {
-                Text("Text from left")
-                Text("Text from right")
+        VStack {
+            VStack {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 280, height: 280)
+                    .clipShape(.rect(cornerRadius: 20))
+
+                Text("Bird")
+                    .font(.largeTitle)
+                    .fontWeight(.medium)
             }
-            Divider()
-                
+            .padding(20)
+            .background(.gray.opacity(0.25))
+            .containerShape(.rect(cornerRadius: 50))
+            Spacer()
         }
+        .padding(.top, 40)
     }
 }
 
