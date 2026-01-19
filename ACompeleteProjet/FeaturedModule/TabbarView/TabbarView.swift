@@ -18,9 +18,13 @@ struct TabbarView: View {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-            Text("Settings View")
+            SettingView()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
+                }
+            GridView()
+                .tabItem {
+                    Label("Grid", systemImage: "heart.fill")
                 }
             LogoutView()
                 .tabItem {
